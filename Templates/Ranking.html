@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lynko - Tabla de Posiciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/Ranking.css">
+    <link rel="stylesheet" href="/static/adim.css">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <img src="https://cdn.phototourl.com/free/2026-06-08-2a556232-b138-49a7-a830-66b7ce8a4f19.png" alt="Lynko Logo">
+                </div>
+                <p class="logo-slogan">Panel de Control Central</p>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="/admin"><i>📊</i> Analíticas e Hitos</a>
+                </li>
+            </ul>
+
+            <ul class="nav-menu">
+                <li class="nav-item ">
+                    <a href="/admin/ranking"><i>📊</i> Ranking mejores estudiantes</a>
+                </li>
+            </ul>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/admin/nuevas-preguntas"><i>📊</i> Nuevas preguntas</a>
+                </li>
+            </ul>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/admin/usuarios"><i>👥</i> Estudiantes</a>
+                </li>
+            </ul>
+
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="/admin/preguntas"><i>❓</i> Banco de Preguntas</a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-footer-btn" style="padding-top: 20px;">
+            <a href="/login" style="color: white; text-decoration: none; font-weight: 700; font-size: 14px;">🚪 Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <div class="leaderboard-container">
+        <div class="header-rank">
+            <h2>🏆 Top Estudiantes</h2>
+            <p>Los superalumnos con más estrellas acumuladas esta semana</p>
+        </div>
+
+        <div class="rank-list">
+    {% if estudiantes %}
+        {% for estudiante in estudiantes %}
+        <!-- Le asignamos una clase especial si está en el top 3 del podio -->
+        <div class="student-row {% if loop.index == 1 %}rank-1{% elif loop.index == 2 %}rank-2{% elif loop.index == 3 %}rank-3{% else %}normal-rank{% endif %}">
+            <div class="left-section">
+                <div class="position-badge">{{ loop.index }}</div>
+                <div class="avatar-placeholder">
+                    {% if loop.index == 1 %}👑{% else %}👦{% endif %}
+                </div>
+                <div class="student-info">
+                    <h4>{{ estudiante[0] }}</h4> <!-- Nombre -->
+                    <span>Nivel {{ estudiante[1] }} ➔ Alumno Competitivo</span> <!-- Nivel -->
+                </div>
+            </div>
+            <div class="points-badge">⭐ {{ estudiante[2] }} pts</div> <!-- Puntaje total -->
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center; color: var(--text-muted);">No hay estudiantes registrados en el sistema aún.</p>
+    {% endif %}
+</div>
+    </div>
+
+</body>
+</html>
