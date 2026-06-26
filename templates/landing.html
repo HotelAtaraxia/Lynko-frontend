@@ -108,7 +108,7 @@
     let preguntasLanding = [];
     let indiceActual = 0;
 
-    // 🚀 Cargar preguntas desde la API al iniciar la página
+    //  Cargar preguntas desde la API 
     async function cargarQuizLanding() {
         try {
             const response = await fetch('/api/preguntas-landing');
@@ -127,20 +127,20 @@
         }
     }
 
-    // 🎨 Renderizar la pregunta en los contenedores del HTML
+    //  Renderizar la pregunta en los contenedores del HTML
     function mostrarPregunta(index) {
         if (!preguntasLanding[index]) return;
         
         const item = preguntasLanding[index];
         
-        // Limpiar estados previos de feedback
+        // Limpiar estados 
         const feedback = document.getElementById('quiz-feedback');
         if (feedback) {
             feedback.style.display = 'none';
             feedback.style.padding = '0px';
         }
 
-        // Detectar materia para asignar un emoji dinámico al avatar decorativo
+        // Detectar materia para asignar un emoji 
         const avatarDecor = document.getElementById('quiz-materia-avatar');
         if (avatarDecor) {
             let emojiMateria = "✨";
@@ -153,12 +153,12 @@
             avatarDecor.innerText = emojiMateria;
         }
 
-        // Actualizar Textos dinámicos
+        // Actualizar Textos 
         document.getElementById('quiz-materia').innerText = item.materia.toUpperCase();
         document.getElementById('quiz-puntos').innerText = `🪙 Recompensa: +${item.puntos} EXP`;
         document.getElementById('quiz-enunciado').innerText = item.pregunta;
 
-        // Renderizar grilla de opciones
+        // Renderizar grilla 
         const opcionesLayout = document.getElementById('quiz-options-layout');
         opcionesLayout.innerHTML = '';
 
@@ -167,24 +167,24 @@
             boton.className = 'preview-opt-btn';
             boton.innerText = opcion.opcion;
             
-            // Manejador de clic para verificar respuesta
+            //  clic para verificar respuesta
             boton.onclick = () => verificarRespuesta(opcion.es_correcta, boton);
             opcionesLayout.appendChild(boton);
         });
     }
 
-    // 🧪 Verificar si la respuesta presionada es la correcta
+    // Verificar si la respuesta  es la correcta
     function verificarRespuesta(esCorrecta, botonSeleccionado) {
         const feedback = document.getElementById('quiz-feedback');
         const todosLosBotones = document.querySelectorAll('.preview-opt-btn');
         
-        // Bloquear todos los botones para evitar múltiples intentos seguidos
+        // Bloquear  los botones para evitar múltiples intentos 
         todosLosBotones.forEach(btn => btn.disabled = true);
 
         if (feedback) {
             feedback.style.padding = '15px';
             if (esCorrecta) {
-                // Estilo interactivo exitoso (Verde Pastel)
+                // Estilo interactivo exitoso 
                 botonSeleccionado.style.background = '#E8F5E9';
                 botonSeleccionado.style.borderColor = '#4CAF50';
                 botonSeleccionado.style.color = '#2E7D32';
@@ -195,7 +195,7 @@
                 feedback.style.border = '2px solid #C8E6C9';
                 feedback.innerText = "¡Excelente! Respuesta correcta. 🚀 ¡Eres un lince!";
             } else {
-                // Estilo interactivo erróneo (Rojo/Rosa Pastel)
+                // Estilo interactivo erróneo 
                 botonSeleccionado.style.background = '#FFEBEE';
                 botonSeleccionado.style.borderColor = '#FF5252';
                 botonSeleccionado.style.color = '#C62828';
@@ -222,7 +222,7 @@
         mostrarPregunta(indiceActual);
     }
 
-    // Iniciar la carga de la API cuando el DOM esté listo
+    // Iniciar la carga de la API cuando el DOM este
     document.addEventListener("DOMContentLoaded", cargarQuizLanding);
 </script>
 
