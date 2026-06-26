@@ -1,6 +1,4 @@
-/* ==========================================================================
-   1. ESTILOS BASE Y GENERALES (RESET & TIPOGRAFÍA)
-   ========================================================================== */
+
 body {
     font-family: 'Nunito', sans-serif;
     margin: 0;
@@ -28,9 +26,7 @@ h1, h2, h3, h4 {
     font-weight: 900;
 }
 
-/* ==========================================================================
-   2. ESTRUCTURA Y DISEÑO DE LA LANDING (HERO, SECCIONES Y GRID)
-   ========================================================================== */
+
 #main-header {
     display: flex;
     justify-content: space-between;
@@ -119,9 +115,7 @@ h1, h2, h3, h4 {
     font-size: 32px;
 }
 
-/* ==========================================================================
-   3. TARJETAS DE MATERIAS (FEATURES CARDS)
-   ========================================================================== */
+/*  TARJETAS DE MATERIAS */
 .feature-card {
     flex: 1;
     min-width: 250px;
@@ -153,9 +147,7 @@ h1, h2, h3, h4 {
 .bio-bg { background-color: #E6FFFA; }
 .esp-bg { background-color: #FEFCBF; }
 
-/* ==========================================================================
-   4. COMPONENTES DE BOTONES GENERALES
-   ========================================================================== */
+/* BOTONES GENERALES */
 .btn-primary, .btn-cta {
     background-color: #FF7A00;
     color: #FFFFFF;
@@ -185,9 +177,7 @@ h1, h2, h3, h4 {
     background-color: #E66E00;
 }
 
-/* ==========================================================================
-   🎮 5. MÓDULO: DESAFÍO RÁPIDO (ESTILO CUTE Y GAMIFICADO)
-   ========================================================================== */
+/*  DESAFÍO */
 
 /* Encabezado de la zona interactiva */
 #preview-header {
@@ -214,7 +204,7 @@ h1, h2, h3, h4 {
     font-family: 'Nunito', sans-serif;
 }
 
-/* Contenedor Flex para Flechas + Tarjeta */
+/* Flechas + Tarjeta */
 .quiz-container {
     display: flex;
     align-items: center;
@@ -225,7 +215,7 @@ h1, h2, h3, h4 {
     padding: 10px;
 }
 
-/* Botones de navegación (Flechas circulares) */
+/*Flechas circulares */
 .quiz-nav-btn {
     background: #FFFFFF;
     border: 3px solid #FFE0CC;
@@ -253,7 +243,7 @@ h1, h2, h3, h4 {
     box-shadow: 0 0px 0 #FFE0CC;
 }
 
-/* Tarjeta Central del Desafío */
+/* Tarjeta  Desafío */
 .quiz-card {
     flex: 1;
     background: #FFFFFF;
@@ -263,7 +253,7 @@ h1, h2, h3, h4 {
     box-shadow: 0 10px 25px rgba(255, 122, 0, 0.05);
 }
 
-/* Metadatos (Materias y Puntos) */
+/*Materias y Puntos */
 .quiz-meta {
     display: flex;
     justify-content: space-between;
@@ -290,7 +280,7 @@ h1, h2, h3, h4 {
     border-radius: 50px;
 }
 
-/* Caja contenedora interna del enunciado */
+/* interna  enunciado */
 .quiz-body-wrapper {
     display: flex;
     align-items: center;
@@ -312,7 +302,7 @@ h1, h2, h3, h4 {
     flex: 1;
 }
 
-/* Avatar circular flotante (Decoración de materia) */
+/*Decoración de materia */
 .quiz-avatar-decor {
     width: 80px;
     height: 80px;
@@ -326,51 +316,50 @@ h1, h2, h3, h4 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
-/* Grid de Opciones de Respuesta 2x2 */
+/*  Opciones de Respuesta  */
 .quiz-options-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;    
-    gap: 16px;           /* Espacio ideal entre los nuevos contenedores */
+    gap: 16px;           
     margin-top: 20px;
 }
 
 .preview-opt-btn {
     background: #FFFFFF; 
-    border: 3px solid #FFE0CC;       /* Borde suave naranja pastel */
-    padding: 16px 28px;              /* ¡Más amplios! Tamaño contenedor mediano */
-    border-radius: 18px;             /* Esquinas muy redondeadas y amigables */
+    border: 3px solid #FFE0CC;       
+    padding: 16px 28px;              
+    border-radius: 18px;             
     font-family: 'Nunito', sans-serif; 
     font-weight: 800; 
-    font-size: 18px;                 /* Texto más grande y legible */
-    color: #FF7A00;                  /* ¡Texto naranja característico de Lynko! */
+    font-size: 18px;                 
+    color: #FF7A00;                  
     cursor: pointer; 
-    box-shadow: 0 5px 0 #FFE0CC;     /* Efecto 3D acolchado abajo */
+    box-shadow: 0 5px 0 #FFE0CC;    
     transition: all 0.1s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 100px;                /* Evita que se compriman si el texto es corto */
+    min-width: 100px;               
 }
 
 .preview-opt-btn:hover:not(:disabled) {
-    background: #FFF9F5;             /* Fondo sutilmente naranja */
-    border-color: #FFB300;           /* Borde resalta a un tono más vivo */
-    color: #E66E00;                  /* El texto se oscurece un poco al interactuar */
-    transform: translateY(-2px);     /* Se eleva ligeramente */
-    box-shadow: 0 7px 0 #FFB300;     /* La sombra crece dando efecto de flotación */
+    background: #FFF9F5;            
+    border-color: #FFB300;           
+    color: #E66E00;                 
+    transform: translateY(-2px);    
+    box-shadow: 0 7px 0 #FFB300;     
 }
 
 .preview-opt-btn:active:not(:disabled) {
-    transform: translateY(4px);      /* Baja simulando que se hunde */
-    box-shadow: 0 1px 0 #FFB300;     /* Casi desaparece la sombra inferior */
-}
+    transform: translateY(4px);      
+    box-shadow: 0 1px 0 #FFB300;    
 
 .preview-opt-btn:disabled {
     cursor: not-allowed;
 }
 
-/* Estilo unificado para los botones generados por JS (.preview-opt-btn) o embebidos */
+/* botones generados por JS */
 .quiz-options-grid button{
     background: #FFFFFF;
     border: 3px solid #E2E8F0;
@@ -409,9 +398,7 @@ h1, h2, h3, h4 {
     transition: all 0.3s ease;
 }
 
-/* ==========================================================================
-   6. ANIMACIONES Y MEDIA QUERIES RESPONSIVAS
-   ========================================================================== */
+/* ANIMACIONES  */
 @keyframes pulseCute {
     0% { transform: scale(1); }
     100% { transform: scale(1.08); }
